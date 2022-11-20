@@ -1,0 +1,16 @@
+﻿➜  test gcc -c lib_sub.c -fpic
+➜  test ls
+cal.h  lib_sub.c  lib_sub.o  main.c
+➜  test gcc *.o -shared -o lib_cal.so
+➜  test ls
+cal.h  lib_cal.so  lib_sub.c  lib_sub.o  main.c
+➜  test gcc -c main.c -o main.o
+➜  test ls
+cal.h  lib_cal.so  lib_sub.c  lib_sub.o  main.c  main.o
+➜  test gcc -o main main.o -L. -l_cal
+➜  test sudo cp lib_cal.so /usr/lib
+[sudo] password for acer: 
+➜  test ./main
+subtraction result = 5
+➜  test 
+
